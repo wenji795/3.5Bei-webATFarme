@@ -2,8 +2,6 @@ import logging
 import sys
 import os
 from jinja2 import Template
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 
 from core.keywords import Keywords
 from utils.allure_utils import allure_init
@@ -23,7 +21,7 @@ class TestRunner:
     # all = {}
 
     @pytest.mark.parametrize("case", data)
-    def test_case(self, case):
+    def test_case(self, case, driver_handler):
 
             # 引用全局的all
             # all = self.all
@@ -39,10 +37,9 @@ class TestRunner:
             logging.info(f'用例ID：{case["id"]} 模块：{case["feature"]} 场景：{case["story"]} 标题：{case["title"]}')
 
             #创建浏览器
-            driver = webdriver.Chrome(service=Service("/Users/swj_795/Desktop/chromedriver-mac-arm64/chromedriver"))
 
             #创建关键字对象
-            keywords = Keywords(driver)
+            keywords = Keywords(driver_handler)
 
             #执行每一步
             for step in case["steps"]:
