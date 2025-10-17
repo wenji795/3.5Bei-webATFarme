@@ -50,7 +50,6 @@ class TestRunner:
                 # 匹配关键字，__getattritubute__(属性名或方法名) -> 返回一个绑定方法 对象类型的数据
                 function_name = keywords.__getattribute__(step["keyword"])
                 # print(function_name)
-
                 # 执行方法
                 function_name(step["by"], step["value"], step["data"])
 
