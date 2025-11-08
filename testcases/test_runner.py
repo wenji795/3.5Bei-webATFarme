@@ -36,8 +36,6 @@ class TestRunner:
             # allure.dynamic.title(f"ID:{case["id"]} -- {case["title"]}")
             logging.info(f'用例ID：{case["id"]} 模块：{case["feature"]} 场景：{case["story"]} 标题：{case["title"]}')
 
-            #创建浏览器
-
             #创建关键字对象
             keywords = Keywords(driver_handler)
 

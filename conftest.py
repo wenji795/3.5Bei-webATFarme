@@ -13,8 +13,8 @@ from selenium.webdriver.chrome.service import Service
 @pytest.fixture(scope="function")#由于浏览器要在每条用例执行前后打开关闭所以scope是function
 def driver_handler():
     #创建浏览器对象
-    driver = webdriver.Chrome(service=Service("driver/chromedriver/chromedriver"))
-
+    # driver = webdriver.Chrome(service=Service("driver/chromedriver/chromedriver"))
+    driver = webdriver.Chrome()
     yield driver
 
     #自动关闭浏览器
